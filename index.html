@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player with Multiple Qualities and YouTube Embed</title>
+    <style>
+        body {
+            background-image: url(https://www.textures4photoshop.com/tex/thumbs/animated-sparkle-overlay-for-photoshop-thumb38.gif);
+            color: beige;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .video-container {
+            background-color: black;
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .quality-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comments {
+            margin-top: 20px;
+            max-width: 80%;
+            margin: auto;
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .comment-list div {
+            margin-bottom: 10px;
+        }
+
+        .comment-list button {
+            margin-right: 5px;
+        }
+
+        .comment-input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: beige;
+            border: 1px solid #555;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #555;
+            color: beige;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #888;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: beige;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="index.html">Video Page</a>
+        <a href="subscription.html">Subscription Page</a>
+    </nav>
+    <center>
+        <h1>Welcome to the VideoPage Which is related to Coding and Developing the Webpage</h1>
+    </center>
+
+    <!-- Video 1 -->
+    <div class="video-container">
+        <iframe id="youtube-video-1" width="560" height="315" 
+        src="https://www.youtube.com/embed/_GTMOmRrqkU?si=ZPhiOWj9jPByVwZL" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <div class="comments">
+            <h3>Comments for Video 1</h3>
+            <div id="comment-list-1" class="comment-list"></div>
+            <textarea id="comment-input-1" class="comment-input" placeholder="Write a comment..."></textarea>
+            <button onclick="postComment(1)">Post Comment</button>
+        </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video-container">
+        <iframe id="youtube-video-2" width="560" height="315" 
+        src="https://www.youtube.com/embed/-mJFZp84TIY?si=t6MiXVMmiTKFM-81" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <div class="comments">
+            <h3>Comments for Video 2</h3>
+            <div id="comment-list-2" class="comment-list"></div>
+            <textarea id="comment-input-2" class="comment-input" placeholder="Write a comment..."></textarea>
+            <button onclick="postComment(2)">Post Comment</button>
+        </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="video-container">
+        <iframe id="youtube-video-3" width="560" height="315" 
+        src="https://www.youtube.com/embed/0KWRVgOgjSc?si=_50GKkc_qpXzzlHa" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <div class="comments">
+            <h3>Comments for Video 3</h3>
+            <div id="comment-list-3" class="comment-list"></div>
+            <textarea id="comment-input-3" class="comment-input" placeholder="Write a comment..."></textarea>
+            <button onclick="postComment(3)">Post Comment</button>
+        </div>
+    </div>
+
+<script>
+    const comments = {
+        1: [],
+        2: [],
+        3: []
+    };
+
+    function postComment(videoId) {
+        const commentInput = document.getElementById(`comment-input-${videoId}`);
+        const newComment = commentInput.value.trim();
+
+        // Check for special characters using a regular expression
+        if (!newComment || /[^\w\s]/.test(newComment)) {
+            alert('Please enter a valid comment without special characters.');
+            return;
+        }
+
+        const comment = {
+            text: newComment,
+            city: 'New York',
+            likes: 0,
+            dislikes: 0
+        };
+
+        comments[videoId].push(comment);
+        displayComments(videoId);
+        commentInput.value = ''; // Clear input
+    }
+
+    function displayComments(videoId) {
+        const commentList = document.getElementById(`comment-list-${videoId}`);
+        commentList.innerHTML = ''; // Clear previous comments
+
+        // Filter out comments with 2 or more dislikes
+        const filteredComments = comments[videoId].filter(comment => comment.dislikes < 2);
+
+        filteredComments.forEach((comment, index) => {
+            const commentDiv = document.createElement('div');
+            commentDiv.innerHTML =  
+                `<p><strong>${comment.city}</strong>: ${comment.text}</p>
+                <button onclick="likeComment(${videoId}, ${index})">Like</button>
+                <button onclick="dislikeComment(${videoId}, ${index})">Dislike</button>
+                <button onclick="translateComment(${videoId}, ${index})">Translate</button>`;
+            commentList.appendChild(commentDiv);
+        });
+    }
+
+    function likeComment(videoId, index) {
+        comments[videoId][index].likes++;
+        displayComments(videoId);
+    }
+
+    function dislikeComment(videoId, index) {
+        comments[videoId][index].dislikes++;
+        
+        // Remove comment if dislikes reach 2
+        if (comments[videoId][index].dislikes >= 2) {
+            comments[videoId].splice(index, 1); // Remove comment from the array
+        }
+
+        displayComments(videoId);
+    }
+
+    function translateComment(videoId, index) {
+        // Mock translation logic (replace with an actual API like Google Translate)
+        comments[videoId][index].text = 'Translated: ' + comments[videoId][index].text;
+        displayComments(videoId);
+    }
+</script>
+
+</body>
+</html>

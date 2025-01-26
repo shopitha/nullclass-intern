@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #ffffff;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        textarea, input {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        .profile-section {
+            margin-top: 40px;
+        }
+        .profile-details {
+            text-align: left;
+            display: inline-block;
+        }
+        .profile-details input,
+        .profile-details textarea {
+            margin-bottom: 15px;
+        }
+        .image-section img {
+            margin-top: 20px;
+            border-radius: 10px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="index.html">Video Page</a>
+        <a href="subscription.html">Subscription Page</a>
+    </nav>
+
+    <!-- Subscription Page Content -->
+    <section id="subscription" style="background: none;">
+        <h1>Subscribe to This Website and Discover More About the Software World 🌐</h1>
+        <p>Enter your email below to subscribe for updates and exclusive benefits.</p>
+        <textarea placeholder="Enter your email to subscribe" rows="3"></textarea><br>
+        <button>Subscribe</button>
+        
+        <h1>ABOUT US</h1>
+        <p>
+            When users subscribe to our platform, they unlock a wealth of additional benefits 📚✨. Subscribers will gain access to detailed course updates, which include new topics, assignments, and resources tailored to their learning path. Moreover, they’ll receive personalized recommendations for related videos 📹 that can help deepen their understanding and expand their skills. Not only will they enjoy a more customized experience, but all these features are available at no additional cost 💸! This means users can continue exploring a wide variety of courses and content without any worries about hidden fees. Whether you’re looking to enhance your knowledge or discover new fields of interest, our subscription service ensures you stay up to date with the latest educational materials 🎓💡. So, why wait? Subscribe now to get the most out of your learning journey and enjoy the endless possibilities it offers! 🌟
+        </p>
+        <img src="https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/fi/art/5bf7e2a3d4df3.jpeg" alt="Learning Image" width="50%">
+    </section>
+
+    <!-- Profile Details Section -->
+    <section class="profile-section" style="background: none;">
+        <h1>Your Profile Details</h1>
+        <div class="profile-details">
+            <form>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" placeholder="Enter your name"><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" placeholder="Enter your email"><br>
+                
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" placeholder="Enter your phone number"><br>
+                
+                <label for="dob">Date of Birth:</label><br>
+                <input type="date" id="dob"><br>
+                
+                <label for="bio">Short Bio:</label><br>
+                <textarea id="bio" rows="4" placeholder="Write a short bio about yourself"></textarea><br>
+                
+                <label for="file-upload">Upload a Resume to get know about you and can suggest some opportunities : </label><br>
+                <input type="file" id="file-upload" accept="image/*, .pdf, .docx"><br><br>
+                
+                <button type="submit">Save Profile</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,141 @@
+body {
+    background-image: url(https://www.textures4photoshop.com/tex/thumbs/animated-sparkle-overlay-for-photoshop-thumb38.gif);
+    color: beige;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: beige;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Page Content */
+section {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Video Section */
+.video-container {
+    background-color: black;
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.comments {
+    margin-top: 20px;
+    max-width: 80%;
+    margin: auto;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.comment-list div {
+    margin-bottom: 10px;
+}
+
+.comment-list button {
+    margin-right: 5px;
+}
+
+.comment-input {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: beige;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #555;
+    color: beige;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #888;
+}
+section {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+
+/* Courses Section */
+#courses {
+    padding: 40px 20px;
+}
+
+.course-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.course-card {
+    color: beige;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: transparent;  /* Remove background */
+    border: 1px solid #555;  /* Optional: Add border to distinguish cards */
+}
+
+.course-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.course-card h3 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.course-card p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.course-card button {
+    background-color: #555;
+    color: beige;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.course-card button:hover {
+    background-color: #888;
+}
